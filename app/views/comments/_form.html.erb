@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+
+<%= form_for([@haberler, @haberler.comments.build]) do |f| %>
+<br/>
+Yorum yap<br/>
+<%= f.text_area :yorum ,PlaceHolder:"Yorumunuz..."%><br/>
+<%= f.submit value="Yorumu Gönder"%><br/><br/>
+<% end %>
+<% end %>

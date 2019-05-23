@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Haber23</title>
+    <%= csrf_meta_tags %>
+    
+    
+    
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-bottom:100px;">
+<nav class="navbar navbar-default  navbar-fixed-top"  role="navigation" style="background-color:#DCDCDC;" >
+    	  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header" >
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <div class="navbar-brand navbar-brand-centered link"><%= link_to 'Haber23', Haberler %> </div>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
+		      <ul class="nav navbar-nav">
+		        <li> </li>
+				
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li class="dropdown">
+				
+		        <li><p class="navbar-text pull-right"> <% if user_signed_in? %>
+ <strong><%= current_user.email %> </strong>.
+<%= link_to 'Profili Düzenle', edit_user_registration_path, :class => 'navbar-link' %> |
+<%= link_to "Çıkış", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+<% else %>
+<%= link_to "Kaydol", new_user_registration_path, :class => 'navbar-link' %> | <%= link_to "Giriş Yap", new_user_session_path, :class => 'navbar-link' %>
+<% end %> </p></li>		        
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		</div>
+<div class="icerikdiv">
+
+  <%= yield %>
+  </div>
+  </body>
+</html>

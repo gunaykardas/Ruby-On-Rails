@@ -1,0 +1,43 @@
+<h2> Bilgileri Güncelle</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email,value="E-posta" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Şu anda <%= resource.unconfirmed_email %> içn onay bekleniyor</div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password ,value="Şifre"%> <i>(Değiştirmek istemiyorsanız boş bırakın)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em>Minimum <%= @minimum_password_length %> karakter</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation ,value="Şifre Onay"%><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password ,value="Mevcut Şifre"%> <i>(Değişikliklerinizi onaylamak için mevcut şifrenize ihtiyacımız var)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Güncelle" %>
+  </div>
+<% end %>
+
+<h3>Hesabımı Sil</h3>
+
+<p>Sitemizden memnun değilmisin? <%= button_to "Hesabımı Sil :(", registration_path(resource_name), data: { confirm: "Emin misiniz?" }, method: :delete %></p>
+
+<%= link_to "Geri", :back %>

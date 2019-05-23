@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  yorum: MyText
+  haberler: one
+  user: one
+
+two:
+  yorum: MyText
+  haberler: two
+  user: two

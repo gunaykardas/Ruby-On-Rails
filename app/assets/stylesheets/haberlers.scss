@@ -1,0 +1,7 @@
+// Place all the styles related to the haberlers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.link a{text-decoration:none;color:#000; -webkit-transition: all 2s;   transition: all 2s;}
+.link a:hover{text-decoration:none;color:#000;background-color:#DCDCDC;-webkit-transition: all 2s;  transition: all 2s;}
+.icerikdiv{margin-left:auto;margin-right:auto;width:800px;margin-top:50px;margin-bottom:50px;}
+body{ overflow-x: hidden;}

@@ -1,0 +1,31 @@
+<%= form_with(model: haberler, local: true) do |form| %>
+  <% if haberler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(haberler.errors.count, "error") %> prohibited this haberler from being saved:</h2>
+
+      <ul>
+      <% haberler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :baslik %>
+    <%= form.text_field :baslik %>
+  </div> 
+  <div class="field">
+    <%= form.label :icerik %>
+    <%= form.text_area :icerik %>
+  </div>
+  <div class="field">
+    <%= form.label :resim %>
+    <%= form.file_field :resim %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit value="Kaydet"%>
+  </div>
+<% end %>

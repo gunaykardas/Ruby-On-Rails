@@ -1,0 +1,52 @@
+ <% if current_admin_user %>
+   <div class="btn btn-success btn-sm" style="margin-left:320px;margin-bottom:25px;"> <%= link_to 'Yeni Haber Ekle', new_haberler_path %> </div>
+ <% end %>
+ <% @haberlers.each do |haberler| %>
+
+
+<div class="container">
+  
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+		<article style="background-color:#dcdcdc;margin-bottom:10px; border-radius:10px;">
+		        <div class="row">
+		            <div class="col-sm-6 col-md-2">
+		              
+		                      <%= image_tag haberler.resim.url(:thumb) if haberler.resim? %>
+		               
+		            </div>
+		            <div class="col-sm-6 col-md-10">
+		                <span class="label label-default pull-right"  style="background-color:#000;color:#FFF;font-size:15px;">
+                            <i class="glyphicon glyphicon-comment" >
+                                <%= pluralize(haberler.comments.count,"") %>    
+                            </i>
+                        </span>
+                        <h4>
+                        <b><%= haberler.baslik %></b>
+                        </h4>
+		                <p style="text-align:justify;margin-right:10px;">   <%= haberler.icerik[0,  500] %>...  </p>
+		                <span class="btn btn-success btn-sm" >
+                            <%= link_to 'Devamını oku', haberler  %>
+                        </span>
+                      <% if current_admin_user %>
+                            <span class="btn btn-warning btn-sm" > 
+                                <%= link_to 'Düzenle', edit_haberler_path(haberler) %> 
+                            </span>
+                                                                
+                            <span class="btn btn-danger btn-sm" > 
+                                <%= link_to 'Sil', haberler, method: :delete, data: { confirm: 'Silinmek üzere silmek istediğine emin misin?' } %>
+                            </span>
+                    <% end %>
+                 </div>
+            </div>
+        </article >
+</div>
+		
+		    
+		    
+	
+</div>
+
+</div>
+		    <% end %>
+		 

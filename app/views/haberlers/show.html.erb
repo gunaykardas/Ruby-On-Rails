@@ -1,0 +1,43 @@
+  <%= render 'shared/goster' %>
+<p id="notice"><%= notice %></p>
+
+<h1 style="margin-top:100px">
+
+  <%= @haberler.baslik %>
+</h1>
+
+<p>
+  
+ 
+  <%= image_tag @haberler.resim.url(:medium) if @haberler.resim? %>
+
+</p>
+
+<p style="text-align:justify;">
+  
+  <%= @haberler.icerik %>
+</p>
+<h2>Yorumlar</h3>
+<h3>
+<% if (pluralize(@comments.count,""))=="0 " %>
+    Bu habere hiç yorum yapılmamış <br/>
+<% else  %>Bu habere <%= (pluralize( @comments.count," kişi yorum yapmış."))[0..-2] %><br/>
+
+
+    <% end %></h3>
+
+
+<%= render 'comments/comment' %>
+<% if !user_signed_in? %>
+Bu habere yorum yapmak istiyorsan giriş yapmalısın!<br/> 
+  <%= link_to "Hemen Kaydol", new_user_registration_path, :class => 'navbar-link' %>
+  zaten kayıtlı mısın? 
+  <%= link_to "Giriş Yap", new_user_session_path, :class => 'navbar-link' %>
+<%end%>
+
+
+
+
+ <% if current_admin_user %>
+<%= link_to 'Düzenle', edit_haberler_path(@haberler) %> 
+<% end %>

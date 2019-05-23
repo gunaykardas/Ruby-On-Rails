@@ -1,0 +1,18 @@
+
+<% @comments.each do |comment| %>
+<div style="margin-top:15px;width:800px;background-color:#CCC;border-radius:5px;padding:10px;">
+<p><%= comment.user.email %></p>
+<p style="text-align:justify;">
+<%= comment.yorum %>
+<div style="background:#888;border:solid 1px #000;text-align:center;">
+<%= comment.created_at.to_s[0,  19] %></div>
+
+</p>
+<% if current_user == comment.user %>
+ <%= link_to "Yorumu Sil", [comment.haberler, comment],method: :delete, data: { confirm: 'Silinmek üzere silmek istediğine emin misin?' }%>
+
+<%= link_to "Yorumu düzenle",  edit_haberler_comment_path(comment.haberler, comment)%>
+<% end %>
+</div>  
+<% end %>
+<%= render 'comments/form' %>

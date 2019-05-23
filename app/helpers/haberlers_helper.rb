@@ -1,0 +1,2 @@
+module HaberlersHelper
+end
