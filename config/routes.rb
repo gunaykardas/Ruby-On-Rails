@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   resources :destroys
+  root:to => 'haberlers#index'
    resources :haberlers,:path=>"haberler" do
        resources :comments
    end
